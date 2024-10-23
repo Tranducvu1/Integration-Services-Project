@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{DB3F10B1-8122-4EAB-BEEC-2A0FB314FC64}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{172A9048-13F0-493F-8E2C-D1D5D144DBA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -50,6 +50,30 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\Dim_Prize_Type.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 10]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7723B6B7-04BC-4F74-803E-6AB628A9034F}"
+      DTS:ObjectName="Excel Connection Manager 10">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\sxmn.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 11]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B55278A0-7599-4AD0-BE63-E179AC7C70EB}"
+      DTS:ObjectName="Excel Connection Manager 11">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\region.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -133,7 +157,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\date.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\date.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -145,7 +169,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\sxmb.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data wahrehouse xoso\sxmb.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1830,6 +1854,611 @@
               endId="Package\date\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
               startId="Package\date\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\region"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CFFCEF25-93E8-4B6E-B4C3-8DA57946C390}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="region"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\region\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\region\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\region\Aggregate.Inputs[Aggregate Input 1].Columns[ID]"
+                      cachedDataType="r8"
+                      cachedName="ID"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\region\Aggregate.Inputs[Aggregate Input 1].Columns[region_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_code"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_code]" />
+                    <inputColumn
+                      refId="Package\region\Aggregate.Inputs[Aggregate Input 1].Columns[region_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_name"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\region\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[ID]"
+                      dataType="r8"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[ID]"
+                      name="ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\region\Excel Source.Outputs[Excel Source Output].Columns[ID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_code]"
+                      name="region_code">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_code]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_name]"
+                      name="region_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_name]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\region\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\region\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 11]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 11]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\region\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID]"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[region_code]"
+                      length="255"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_code]"
+                      name="region_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[region_name]"
+                      length="255"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Output].Columns[region_name]"
+                      name="region_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID]"
+                      dataType="r8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[region_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="region_code" />
+                    <externalMetadataColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Output].ExternalColumns[region_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="region_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\region\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ID]"
+                      dataType="r8"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[region_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[region_code]"
+                      name="region_code" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[region_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[region_name]"
+                      name="region_name" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\region\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\region\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[region]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\region\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="r8"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[region_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_code"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[region_code]" />
+                    <inputColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[region_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_name"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[region_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="r8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="region_code" />
+                    <externalMetadataColumn
+                      refId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="region_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\region\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\region\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\region\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\region\Sort.Inputs[Sort Input].Columns[ID]"
+                      cachedDataType="r8"
+                      cachedName="ID"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\region\Sort.Inputs[Sort Input].Columns[region_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_code"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\region\Sort.Inputs[Sort Input].Columns[region_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region_name"
+                      lineageId="Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\region\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\region\Sort.Outputs[Sort Output].Columns[ID]"
+                      dataType="r8"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[ID]"
+                      name="ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\region\Sort.Outputs[Sort Output].Columns[region_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[region_code]"
+                      name="region_code"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\region\Sort.Outputs[Sort Output].Columns[region_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\region\Sort.Outputs[Sort Output].Columns[region_name]"
+                      name="region_name"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\region\Aggregate.Outputs[Aggregate Output 1].Columns[region_name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\region.Paths[Aggregate Output 1]"
+              endId="Package\region\Sort.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\region\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\region.Paths[Excel Source Output]"
+              endId="Package\region\Aggregate.Inputs[Aggregate Input 1]"
+              name="Excel Source Output"
+              startId="Package\region\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\region.Paths[Sort Output]"
+              endId="Package\region\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\region\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3951,6 +4580,2189 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\sxmn"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0A9E4C95-D72C-4B93-861C-2BEE60A793E4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="sxmn"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\sxmn\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[special]"
+                      cachedDataType="r8"
+                      cachedName="special"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[special]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize1]"
+                      cachedDataType="r8"
+                      cachedName="prize1"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize1]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize2_1]"
+                      cachedDataType="r8"
+                      cachedName="prize2_1"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize2_2]"
+                      cachedDataType="r8"
+                      cachedName="prize2_2"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize3_1]"
+                      cachedDataType="r8"
+                      cachedName="prize3_1"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize3_2]"
+                      cachedDataType="r8"
+                      cachedName="prize3_2"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize3_3]"
+                      cachedDataType="r8"
+                      cachedName="prize3_3"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize3_4]"
+                      cachedDataType="r8"
+                      cachedName="prize3_4"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_4]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize3_5]"
+                      cachedDataType="r8"
+                      cachedName="prize3_5"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_5]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize5_4]"
+                      cachedDataType="r8"
+                      cachedName="prize5_4"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_4]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize5_5]"
+                      cachedDataType="r8"
+                      cachedName="prize5_5"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_5]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize5_6]"
+                      cachedDataType="r8"
+                      cachedName="prize5_6"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_6]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize6_1]"
+                      cachedDataType="r8"
+                      cachedName="prize6_1"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize6_2]"
+                      cachedDataType="r8"
+                      cachedName="prize6_2"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize6_3]"
+                      cachedDataType="r8"
+                      cachedName="prize6_3"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize7_1]"
+                      cachedDataType="r8"
+                      cachedName="prize7_1"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize7_2]"
+                      cachedDataType="r8"
+                      cachedName="prize7_2"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize7_3]"
+                      cachedDataType="r8"
+                      cachedName="prize7_3"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1].Columns[prize7_4]"
+                      cachedDataType="r8"
+                      cachedName="prize7_4"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_4]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[Count all]"
+                      dataType="ui8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[Count all]"
+                      name="Count all">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[special]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[special]"
+                      name="special">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[special]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize1]"
+                      name="prize1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_1]"
+                      name="prize2_1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_2]"
+                      name="prize2_2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_2]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_1]"
+                      name="prize3_1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_2]"
+                      name="prize3_2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_2]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_3]"
+                      name="prize3_3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_3]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_4]"
+                      name="prize3_4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_4]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_5]"
+                      name="prize3_5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_5]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_4]"
+                      name="prize5_4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_4]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_5]"
+                      name="prize5_5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_5]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_6]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_6]"
+                      name="prize5_6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_6]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_1]"
+                      name="prize6_1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_2]"
+                      name="prize6_2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_2]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_3]"
+                      name="prize6_3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_3]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_1]"
+                      name="prize7_1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_2]"
+                      name="prize7_2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_2]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_3]"
+                      name="prize7_3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_3]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_4]"
+                      name="prize7_4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_4]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\sxmn\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">sxmn$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\sxmn\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 10]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 10]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\sxmn\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[id]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[special]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[special]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[special]"
+                      name="special"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize1]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize1]"
+                      name="prize1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize2_1]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_1]"
+                      name="prize2_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize2_2]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize2_2]"
+                      name="prize2_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_1]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_1]"
+                      name="prize3_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_2]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_2]"
+                      name="prize3_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_3]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_3]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_3]"
+                      name="prize3_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_4]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_4]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_4]"
+                      name="prize3_4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_5]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_5]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize3_5]"
+                      name="prize3_5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_4]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_4]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_4]"
+                      name="prize5_4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_5]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_5]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_5]"
+                      name="prize5_5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_6]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_6]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize5_6]"
+                      name="prize5_6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_1]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_1]"
+                      name="prize6_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_2]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_2]"
+                      name="prize6_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_3]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_3]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize6_3]"
+                      name="prize6_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_1]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_1]"
+                      name="prize7_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_2]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_2]"
+                      name="prize7_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_3]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_3]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_3]"
+                      name="prize7_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_4]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_4]"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Output].Columns[prize7_4]"
+                      name="prize7_4"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[special]"
+                      dataType="r8"
+                      name="special" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize1]"
+                      dataType="r8"
+                      name="prize1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize2_1]"
+                      dataType="r8"
+                      name="prize2_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize2_2]"
+                      dataType="r8"
+                      name="prize2_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_1]"
+                      dataType="r8"
+                      name="prize3_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_2]"
+                      dataType="r8"
+                      name="prize3_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_3]"
+                      dataType="r8"
+                      name="prize3_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_4]"
+                      dataType="r8"
+                      name="prize3_4" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize3_5]"
+                      dataType="r8"
+                      name="prize3_5" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_4]"
+                      dataType="r8"
+                      name="prize5_4" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_5]"
+                      dataType="r8"
+                      name="prize5_5" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize5_6]"
+                      dataType="r8"
+                      name="prize5_6" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_1]"
+                      dataType="r8"
+                      name="prize6_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_2]"
+                      dataType="r8"
+                      name="prize6_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize6_3]"
+                      dataType="r8"
+                      name="prize6_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_1]"
+                      dataType="r8"
+                      name="prize7_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_2]"
+                      dataType="r8"
+                      name="prize7_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_3]"
+                      dataType="r8"
+                      name="prize7_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Output].ExternalColumns[prize7_4]"
+                      dataType="r8"
+                      name="prize7_4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[special]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[special]"
+                      name="special" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize1]"
+                      name="prize1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize2_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize2_1]"
+                      name="prize2_1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize2_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize2_2]"
+                      name="prize2_2" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_1]"
+                      name="prize3_1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_2]"
+                      name="prize3_2" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_3]"
+                      name="prize3_3" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_4]"
+                      name="prize3_4" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize3_5]"
+                      name="prize3_5" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_4]"
+                      name="prize5_4" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_5]"
+                      name="prize5_5" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_6]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize5_6]"
+                      name="prize5_6" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_1]"
+                      name="prize6_1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_2]"
+                      name="prize6_2" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize6_3]"
+                      name="prize6_3" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_1]"
+                      name="prize7_1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_2]"
+                      name="prize7_2" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_3]"
+                      name="prize7_3" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[prize7_4]"
+                      name="prize7_4" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\sxmn\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\sxmn\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sxmn]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\sxmn\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Count all]"
+                      cachedDataType="ui8"
+                      cachedName="Count all"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Count all]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[Count all]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[special]"
+                      cachedDataType="r8"
+                      cachedName="special"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[special]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[special]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize1]"
+                      cachedDataType="r8"
+                      cachedName="prize1"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize1]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize1]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize2_1]"
+                      cachedDataType="r8"
+                      cachedName="prize2_1"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize2_1]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize2_2]"
+                      cachedDataType="r8"
+                      cachedName="prize2_2"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize2_2]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize3_1]"
+                      cachedDataType="r8"
+                      cachedName="prize3_1"
+                      cachedSortKeyPosition="6"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_1]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize3_2]"
+                      cachedDataType="r8"
+                      cachedName="prize3_2"
+                      cachedSortKeyPosition="7"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_2]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize3_3]"
+                      cachedDataType="r8"
+                      cachedName="prize3_3"
+                      cachedSortKeyPosition="8"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_3]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize3_4]"
+                      cachedDataType="r8"
+                      cachedName="prize3_4"
+                      cachedSortKeyPosition="9"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_4]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_4]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize3_5]"
+                      cachedDataType="r8"
+                      cachedName="prize3_5"
+                      cachedSortKeyPosition="10"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_5]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_5]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize5_4]"
+                      cachedDataType="r8"
+                      cachedName="prize5_4"
+                      cachedSortKeyPosition="11"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_4]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_4]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize5_5]"
+                      cachedDataType="r8"
+                      cachedName="prize5_5"
+                      cachedSortKeyPosition="12"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_5]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_5]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize5_6]"
+                      cachedDataType="r8"
+                      cachedName="prize5_6"
+                      cachedSortKeyPosition="13"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_6]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_6]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize6_1]"
+                      cachedDataType="r8"
+                      cachedName="prize6_1"
+                      cachedSortKeyPosition="14"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_1]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize6_2]"
+                      cachedDataType="r8"
+                      cachedName="prize6_2"
+                      cachedSortKeyPosition="15"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_2]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize6_3]"
+                      cachedDataType="r8"
+                      cachedName="prize6_3"
+                      cachedSortKeyPosition="16"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_3]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize7_1]"
+                      cachedDataType="r8"
+                      cachedName="prize7_1"
+                      cachedSortKeyPosition="17"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_1]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_1]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize7_2]"
+                      cachedDataType="r8"
+                      cachedName="prize7_2"
+                      cachedSortKeyPosition="18"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_2]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_2]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize7_3]"
+                      cachedDataType="r8"
+                      cachedName="prize7_3"
+                      cachedSortKeyPosition="19"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_3]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_3]" />
+                    <inputColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prize7_4]"
+                      cachedDataType="r8"
+                      cachedName="prize7_4"
+                      cachedSortKeyPosition="20"
+                      externalMetadataColumnId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_4]"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_4]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Count all]"
+                      dataType="numeric"
+                      name="Count all"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[special]"
+                      dataType="r8"
+                      name="special" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize1]"
+                      dataType="r8"
+                      name="prize1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize2_1]"
+                      dataType="r8"
+                      name="prize2_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize2_2]"
+                      dataType="r8"
+                      name="prize2_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_1]"
+                      dataType="r8"
+                      name="prize3_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_2]"
+                      dataType="r8"
+                      name="prize3_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_3]"
+                      dataType="r8"
+                      name="prize3_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_4]"
+                      dataType="r8"
+                      name="prize3_4" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize3_5]"
+                      dataType="r8"
+                      name="prize3_5" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_4]"
+                      dataType="r8"
+                      name="prize5_4" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_5]"
+                      dataType="r8"
+                      name="prize5_5" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize5_6]"
+                      dataType="r8"
+                      name="prize5_6" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_1]"
+                      dataType="r8"
+                      name="prize6_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_2]"
+                      dataType="r8"
+                      name="prize6_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize6_3]"
+                      dataType="r8"
+                      name="prize6_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_1]"
+                      dataType="r8"
+                      name="prize7_1" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_2]"
+                      dataType="r8"
+                      name="prize7_2" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_3]"
+                      dataType="r8"
+                      name="prize7_3" />
+                    <externalMetadataColumn
+                      refId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prize7_4]"
+                      dataType="r8"
+                      name="prize7_4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\sxmn\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\sxmn\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\sxmn\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\sxmn\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\sxmn\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\sxmn\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\sxmn\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[Count all]"
+                      cachedDataType="ui8"
+                      cachedName="Count all"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[Count all]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[special]"
+                      cachedDataType="r8"
+                      cachedName="special"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[special]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize1]"
+                      cachedDataType="r8"
+                      cachedName="prize1"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize2_1]"
+                      cachedDataType="r8"
+                      cachedName="prize2_1"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize2_2]"
+                      cachedDataType="r8"
+                      cachedName="prize2_2"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize3_1]"
+                      cachedDataType="r8"
+                      cachedName="prize3_1"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize3_2]"
+                      cachedDataType="r8"
+                      cachedName="prize3_2"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize3_3]"
+                      cachedDataType="r8"
+                      cachedName="prize3_3"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_3]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">8</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize3_4]"
+                      cachedDataType="r8"
+                      cachedName="prize3_4"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_4]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">9</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize3_5]"
+                      cachedDataType="r8"
+                      cachedName="prize3_5"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_5]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">10</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize5_4]"
+                      cachedDataType="r8"
+                      cachedName="prize5_4"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_4]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">11</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize5_5]"
+                      cachedDataType="r8"
+                      cachedName="prize5_5"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_5]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">12</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize5_6]"
+                      cachedDataType="r8"
+                      cachedName="prize5_6"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_6]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">13</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize6_1]"
+                      cachedDataType="r8"
+                      cachedName="prize6_1"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">14</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize6_2]"
+                      cachedDataType="r8"
+                      cachedName="prize6_2"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">15</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize6_3]"
+                      cachedDataType="r8"
+                      cachedName="prize6_3"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_3]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">16</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize7_1]"
+                      cachedDataType="r8"
+                      cachedName="prize7_1"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">17</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize7_2]"
+                      cachedDataType="r8"
+                      cachedName="prize7_2"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">18</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize7_3]"
+                      cachedDataType="r8"
+                      cachedName="prize7_3"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_3]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">19</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\sxmn\Sort.Inputs[Sort Input].Columns[prize7_4]"
+                      cachedDataType="r8"
+                      cachedName="prize7_4"
+                      lineageId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_4]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">20</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\sxmn\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[Count all]"
+                      dataType="ui8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[Count all]"
+                      name="Count all">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[Count all]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[id]"
+                      name="id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[special]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[special]"
+                      name="special"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[special]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize1]"
+                      name="prize1"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_1]"
+                      name="prize2_1"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize2_2]"
+                      name="prize2_2"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize2_2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_1]"
+                      name="prize3_1"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_2]"
+                      name="prize3_2"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_3]"
+                      name="prize3_3"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_3]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_4]"
+                      name="prize3_4"
+                      sortKeyPosition="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_4]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize3_5]"
+                      name="prize3_5"
+                      sortKeyPosition="10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize3_5]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_4]"
+                      name="prize5_4"
+                      sortKeyPosition="11">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_4]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_5]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_5]"
+                      name="prize5_5"
+                      sortKeyPosition="12">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_5]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_6]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize5_6]"
+                      name="prize5_6"
+                      sortKeyPosition="13">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize5_6]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_1]"
+                      name="prize6_1"
+                      sortKeyPosition="14">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_2]"
+                      name="prize6_2"
+                      sortKeyPosition="15">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize6_3]"
+                      name="prize6_3"
+                      sortKeyPosition="16">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize6_3]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_1]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_1]"
+                      name="prize7_1"
+                      sortKeyPosition="17">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_2]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_2]"
+                      name="prize7_2"
+                      sortKeyPosition="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_3]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_3]"
+                      name="prize7_3"
+                      sortKeyPosition="19">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_3]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_4]"
+                      dataType="r8"
+                      lineageId="Package\sxmn\Sort.Outputs[Sort Output].Columns[prize7_4]"
+                      name="prize7_4"
+                      sortKeyPosition="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\sxmn\Aggregate.Outputs[Aggregate Output 1].Columns[prize7_4]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\sxmn.Paths[Aggregate Output 1]"
+              endId="Package\sxmn\Sort.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\sxmn\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\sxmn.Paths[Excel Source Output]"
+              endId="Package\sxmn\Aggregate.Inputs[Aggregate Input 1]"
+              name="Excel Source Output"
+              startId="Package\sxmn\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\sxmn.Paths[Sort Output]"
+              endId="Package\sxmn\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\sxmn\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3963,23 +6775,31 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="127,42"
           Id="Package\city_north"
-          TopLeft="354.916660633767,58.066667700244" />
+          TopLeft="527.916660633767,163.066667700244" />
         <NodeLayout
           Size="141,42"
           Id="Package\City_souther"
-          TopLeft="160.499984155099,73.833332851198" />
+          TopLeft="87.499984155099,72.833332851198" />
         <NodeLayout
           Size="100,42"
           Id="Package\date"
-          TopLeft="611.5,233.5" />
+          TopLeft="332.5,50.5" />
         <NodeLayout
           Size="105,42"
           Id="Package\sxmb"
-          TopLeft="152.5,169.5" />
+          TopLeft="107.5,203.5" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\sxmn"
+          TopLeft="528.5,82.5" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\region"
+          TopLeft="282.5,157.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3987,7 +6807,7 @@
     design-time-name="Package\city_north">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="99,42"
           Id="Package\city_north\Sort"
@@ -4023,7 +6843,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4057,7 +6879,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4091,7 +6915,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4261,15 +7087,27 @@
     design-time-name="Package\date">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="99,42"
+          Id="Package\date\Sort"
+          TopLeft="399.5,388.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\date\Derived Column"
+          TopLeft="375.5,201.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\date\OLE DB Destination"
+          TopLeft="340.5,487.5" />
         <NodeLayout
           Size="144,42"
           Id="Package\date\Excel Source"
           TopLeft="392.5,76.5" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\date\Derived Column"
-          TopLeft="375.5,201.5" />
+          Size="130,42"
+          Id="Package\date\Aggregate"
+          TopLeft="395.5,300.5" />
         <EdgeLayout
           Id="Package\date.Paths[Excel Source Output]"
           TopLeft="464.5,118.5">
@@ -4301,13 +7139,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\date\Aggregate"
-          TopLeft="395.5,300.5" />
         <EdgeLayout
           Id="Package\date.Paths[Derived Column Output]"
           TopLeft="457.5,243.5">
@@ -4327,13 +7163,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\date\Sort"
-          TopLeft="399.5,388.5" />
         <EdgeLayout
           Id="Package\date.Paths[Aggregate Output 1]"
           TopLeft="460.5,342.5">
@@ -4365,13 +7199,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\date\OLE DB Destination"
-          TopLeft="340.5,487.5" />
         <EdgeLayout
           Id="Package\date.Paths[Sort Output]"
           TopLeft="449,430.5">
@@ -4403,7 +7235,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4445,9 +7279,39 @@
           Id="Package\sxmb\Excel Source"
           TopLeft="389.5,77.5" />
         <NodeLayout
+          Size="99,42"
+          Id="Package\sxmb\Sort"
+          TopLeft="391.5,317.5" />
+        <NodeLayout
           Size="130,42"
           Id="Package\sxmb\Aggregate"
           TopLeft="389.5,224.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\sxmb\OLE DB Destination"
+          TopLeft="356.5,423.5" />
+        <EdgeLayout
+          Id="Package\sxmb.Paths[Sort Output]"
+          TopLeft="443,359.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\sxmb.Paths[Excel Source Output]"
           TopLeft="458,119.5">
@@ -4470,10 +7334,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\sxmb\Sort"
-          TopLeft="391.5,317.5" />
         <EdgeLayout
           Id="Package\sxmb.Paths[Aggregate Output 1]"
           TopLeft="454.5,266.5">
@@ -4508,32 +7368,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\sxmb\OLE DB Destination"
-          TopLeft="356.5,423.5" />
-        <EdgeLayout
-          Id="Package\sxmb.Paths[Sort Output]"
-          TopLeft="443,359.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4552,6 +7386,250 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\sxmb\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\sxmn">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\sxmn\Excel Source"
+          TopLeft="351.5,47.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\sxmn\Aggregate"
+          TopLeft="362.5,167.5" />
+        <EdgeLayout
+          Id="Package\sxmn.Paths[Excel Source Output]"
+          TopLeft="425.5,89.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99,42"
+          Id="Package\sxmn\Sort"
+          TopLeft="365.5,294.5" />
+        <EdgeLayout
+          Id="Package\sxmn.Paths[Aggregate Output 1]"
+          TopLeft="427.5,209.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,85"
+              Start="0,0"
+              End="-12.5,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="-4,42.5" />
+                  <mssgle:LineSegment
+                    End="-8.5,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,42.5"
+                    Point2="-12.5,42.5"
+                    Point3="-12.5,46.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\sxmn\OLE DB Destination"
+          TopLeft="320.5,399.5" />
+        <EdgeLayout
+          Id="Package\sxmn.Paths[Sort Output]"
+          TopLeft="412,336.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\sxmn\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\sxmn\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\region">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\region\Excel Source"
+          TopLeft="298.5,82.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\region\Aggregate"
+          TopLeft="300.5,169.5" />
+        <EdgeLayout
+          Id="Package\region.Paths[Excel Source Output]"
+          TopLeft="368,124.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99,42"
+          Id="Package\region\Sort"
+          TopLeft="310.5,264.5" />
+        <EdgeLayout
+          Id="Package\region.Paths[Aggregate Output 1]"
+          TopLeft="362.75,211.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\region\OLE DB Destination"
+          TopLeft="278.5,377.5" />
+        <EdgeLayout
+          Id="Package\region.Paths[Sort Output]"
+          TopLeft="363.5,306.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\region\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\region\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
