@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{425B9DF7-89AC-4F2A-8A78-DDCA136778F6}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{D02D05AA-AC08-4103-B0CF-B1B64B59D36C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1214,7 +1214,8 @@
                       lineageId="Package\date\Excel Source.Outputs[Excel Source Output].Columns[date]" />
                     <inputColumn
                       refId="Package\date\Aggregate.Inputs[Aggregate Input 1].Columns[Year]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="4"
                       cachedName="Year"
                       lineageId="Package\date\Derived Column.Outputs[Derived Column Output].Columns[Year]" />
                   </inputColumns>
@@ -1291,10 +1292,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[YEAR]"
-                      dataType="i4"
-                      lineageId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[YEAR]"
-                      name="YEAR">
+                      refId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[Year]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[Year]"
+                      name="Year">
                       <properties>
                         <property
                           containsID="true"
@@ -1354,9 +1356,10 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\date\Derived Column.Outputs[Derived Column Output].Columns[Year]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="4"
                       lineageId="Package\date\Derived Column.Outputs[Derived Column Output].Columns[Year]"
                       name="Year"
                       truncationRowDisposition="FailComponent">
@@ -1365,13 +1368,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[YEAR]((DT_DATE)#{Package\date\Excel Source.Outputs[Excel Source Output].Columns[date]})</property>
+                          name="Expression">[LEFT](#{Package\date\Excel Source.Outputs[Excel Source Output].Columns[date]},4)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">YEAR((DT_DATE)date)</property>
+                          name="FriendlyExpression">LEFT(date,4)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1537,7 +1540,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[DATE]</property>
+                  name="OpenRowset">[date]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1610,7 +1613,8 @@
                       lineageId="Package\date\Sort.Outputs[Sort Output].Columns[date]" />
                     <inputColumn
                       refId="Package\date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[YEAR]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="4"
                       cachedName="YEAR"
                       cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
@@ -1629,7 +1633,8 @@
                       name="date" />
                     <externalMetadataColumn
                       refId="Package\date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="4"
                       name="YEAR" />
                   </externalMetadataColumns>
                 </input>
@@ -1716,10 +1721,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\date\Sort.Inputs[Sort Input].Columns[YEAR]"
-                      cachedDataType="i4"
-                      cachedName="YEAR"
-                      lineageId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[YEAR]">
+                      refId="Package\date\Sort.Inputs[Sort Input].Columns[Year]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Year"
+                      lineageId="Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[Year]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1772,7 +1778,8 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\date\Sort.Outputs[Sort Output].Columns[YEAR]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="4"
                       lineageId="Package\date\Sort.Outputs[Sort Output].Columns[YEAR]"
                       name="YEAR"
                       sortKeyPosition="3">
@@ -1781,7 +1788,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[YEAR]}</property>
+                          name="SortColumnId">#{Package\date\Aggregate.Outputs[Aggregate Output 1].Columns[Year]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
