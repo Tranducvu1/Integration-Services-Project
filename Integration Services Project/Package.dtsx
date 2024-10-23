@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{172A9048-13F0-493F-8E2C-D1D5D144DBA1}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{FDC49CA1-7579-4350-A89A-771B94F292EE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,30 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=DESKTOP-9197KU1\SQLEXPRESS01;Initial Catalog=sx;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{A9FB0B6D-00F6-4C9B-BC4E-5A3D0F3731BD}DESKTOP-9197KU1\SQLEXPRESS01.sx;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{51C723C7-A79D-4E19-925B-99F2B41B7379}"
+      DTS:ObjectName="DESKTOP-9197KU1\SQLEXPRESS01.sx 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-9197KU1\SQLEXPRESS01;Initial Catalog=sx;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{51C723C7-A79D-4E19-925B-99F2B41B7379}DESKTOP-9197KU1\SQLEXPRESS01.sx 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-9197KU1\SQLEXPRESS01.sx 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8A3DFD4B-9643-48D6-8004-9E94FA063702}"
+      DTS:ObjectName="DESKTOP-9197KU1\SQLEXPRESS01.sx 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-9197KU1\SQLEXPRESS01;Initial Catalog=sx;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{8A3DFD4B-9643-48D6-8004-9E94FA063702}DESKTOP-9197KU1\SQLEXPRESS01.sx 2;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -2461,6 +2485,21 @@
               startId="Package\region\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Review_Fact"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CEF099C3-05FB-43CD-B62F-368E5C470794}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Review_Fact"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -6800,6 +6839,10 @@
           Size="110,42"
           Id="Package\region"
           TopLeft="282.5,157.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Review_Fact"
+          TopLeft="326.5,224.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
