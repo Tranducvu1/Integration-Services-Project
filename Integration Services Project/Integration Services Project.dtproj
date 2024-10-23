@@ -1757,13 +1757,7 @@
         <LinkedAzureSSISIR />
         <LinkedAzureStorage />
         <RemoteExecutionFolder />
-        <ParameterConfigurationValues>
-          <ConfigurationSetting>
-            <Id>LastModifiedTime</Id>
-            <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2024-10-01T02:44:32.570973Z</Value>
-          </ConfigurationSetting>
-        </ParameterConfigurationValues>
+        <ParameterConfigurationValues />
       </Options>
     </Configuration>
   </Configurations>
